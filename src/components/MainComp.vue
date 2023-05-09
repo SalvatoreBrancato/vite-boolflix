@@ -19,10 +19,17 @@ export default{
 </script>
 
 <template>
-  <FilmComp/>
+  <div id="container" class="d-flex justify-content-between align-items-center mt-4 ">
+    <FilmComp v-for="(element, index) in store.arrayNetflix" :key="index" :propsFilm="element"/>
+  </div>
   <SerieComp/>
 </template>
 
-<style lang="scss">
-
+<style lang="scss" scoped>
+  #container{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    width: 80%;
+    margin: 0 auto;
+  }
 </style>
