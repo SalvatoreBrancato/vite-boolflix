@@ -18,25 +18,37 @@ created(){
   this.chiamataApi()
 },
 methods:{
+
   chiamataApi(){
     if(store.testoRicerca == ""){
       axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0487d30568617584a3cc3c09136753c9&language=it-IT`)
       .then((res)=>{
         const datiApi = res.data.results
         store.arrayNetflix = datiApi
-        console.log(store.arrayNetflix)
+        
+      })
+      axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=0487d30568617584a3cc3c09136753c9&language=it-IT`)
+      .then((res)=>{
+        const datiApiSerie = res.data.results
+        store.arraySerie = datiApiSerie
       })
     } else{
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=0487d30568617584a3cc3c09136753c9&language=it-IT&query=${store.testoRicerca}`)
       .then((res)=>{
         const datiApi = res.data.results
         store.arrayNetflix = datiApi
-        console.log(store.arrayNetflix)
+        store.testoRicerca = ""
+        
+      })
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=0487d30568617584a3cc3c09136753c9&language=it-IT&query=${store.testoRicerca}`)
+      .then((res)=>{
+        const datiApiSerie = res.data.results
+        store.arraySerie = datiApiSerie
+        store.testoRicerca = ""
       })
     }
   }
 }
-
 }
 </script>
 

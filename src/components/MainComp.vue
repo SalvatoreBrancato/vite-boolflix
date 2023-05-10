@@ -22,7 +22,9 @@ export default{
   <div id="container" class="d-flex justify-content-between align-items-center mt-4 ">
     <FilmComp v-for="(element, index) in store.arrayNetflix" :key="index" :propsFilm="element"/>
   </div>
-  <SerieComp/>
+  <div id="container" class="d-flex justify-content-between align-items-center mt-4 ">
+    <SerieComp v-for="(element, index) in store.arraySerie" :key="index" :propsSerie="element"/>
+  </div>
 </template>
 
 <style lang="scss" scoped>
