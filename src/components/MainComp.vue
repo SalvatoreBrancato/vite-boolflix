@@ -31,6 +31,7 @@ export default{
   #container{
     overflow-x: scroll;
     overflow-y: hidden;
+    height: 40vh;
     width: 80%;
     margin: 0 auto;
   }
