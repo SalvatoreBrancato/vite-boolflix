@@ -18,6 +18,21 @@ created(){
   this.chiamataApi()
 },
 methods:{
+  chiamataHome(){
+    
+      axios.get(`https://api.themoviedb.org/3/movie/popular?api_key=0487d30568617584a3cc3c09136753c9&language=it-IT`)
+      .then((res)=>{
+        const datiApi = res.data.results
+        store.arrayNetflix = datiApi
+        
+      })
+      axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=0487d30568617584a3cc3c09136753c9&language=it-IT`)
+      .then((res)=>{
+        const datiApiSerie = res.data.results
+        store.arraySerie = datiApiSerie
+      })
+
+    },
 
   chiamataApi(){
     if(store.testoRicerca == ""){
@@ -53,7 +68,7 @@ methods:{
 </script>
 
 <template>
-  <NavComp @emitRicerca="chiamataApi"/>
+  <NavComp @emitRicerca="chiamataApi" @emitHome="chiamataHome"/>
   <MainComp/>
 </template>
 

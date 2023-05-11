@@ -33,7 +33,7 @@ export default{
 
 <template>
   <div id="card" class="mx-2 text-center position-relative">
-    <img :src="`//image.tmdb.org/t/p/w342${propsSerie.poster_path}`" alt="copertina"> 
+    <img :src="`//image.tmdb.org/t/p/w500${propsSerie.poster_path}`" alt="copertina"> 
     <div id="info" class="position-absolute d-flex justify-content-center align-items-center flex-column">
       <h4 class="mb-3">{{ propsSerie.name }}</h4>
       <img class="mb-3" :src=" `https://flagsapi.com/${up()}/flat/64.png`" alt="lingua">
