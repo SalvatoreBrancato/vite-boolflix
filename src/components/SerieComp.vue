@@ -53,6 +53,7 @@ export default{
     background-color: white;
     &:hover{
     min-width: 300px;
+    transition: 0.5s;
     }
     img{
       width: 100%;
@@ -65,9 +66,10 @@ export default{
       bottom: 0;
       opacity: 0;
     &:hover{
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       color: white;
       opacity: 1;
+      transition: 2s;
     }
      img{
        width: 30px;

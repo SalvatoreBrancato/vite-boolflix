@@ -20,7 +20,7 @@ export default{
             <span class="px-2">Serie</span>
         </div>
         <div class="w-50">
-            <input type="text" v-model="store.testoRicerca" placeholder="Cerca un titolo..." class="rounded-start-pill ps-2">
+            <input @keyup.enter="$emit('emitRicerca')" type="text" v-model="store.testoRicerca" placeholder="Cerca un titolo..." class="rounded-start-pill ps-2">
             <button class="rounded-end-pill px-4" @click="$emit('emitRicerca')">
                 <i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>
             </button>
@@ -32,7 +32,7 @@ export default{
     #container{
         background-color: rgb(0,0,0);
         #logo{
-            width: 10%;
+            width: 15%;
         }
         span{
             margin-left: 10px;

@@ -15,6 +15,17 @@ export default{
   return{
     store
   }
+},
+methods:{
+  scrollHorizzontale(e, elementHtml){
+    const container = document.getElementById(elementHtml)
+    
+    if(e.deltaY > 0){
+      container.scrollLeft += 230
+    } else {
+      container.scrollLeft -= 230
+    }
+  }
 }
 
 }
@@ -22,11 +33,11 @@ export default{
 
 <template>
   <h2>Film</h2>
-  <div id="container" class="d-flex justify-content-between align-items-center mt-4 ">
+  <div  @wheel.prevent="scrollHorizzontale($event, 'container-film')" id="container-film" class="d-flex justify-content-between align-items-center mt-4 ">
     <FilmComp v-for="(element, index) in store.arrayNetflix" :key="index" :propsFilm="element"/>
   </div>
   <h2 class="mt-5">Serie</h2>
-  <div id="container" class="d-flex justify-content-between align-items-center mt-4 ">
+  <div @wheel.prevent="scrollHorizzontale($event, 'container-serie')" id="container-serie" class="d-flex justify-content-between align-items-center mt-4 ">
     <SerieComp v-for="(element, index) in store.arraySerie" :key="index" :propsSerie="element"/>
   </div>
   <h2 class="mt-5">Attori</h2>
@@ -40,10 +51,11 @@ export default{
     margin-left: 10%;
     color: white;
   }
-  #container{
-    overflow-x: scroll;
+  #container-film,
+  #container-serie{
+    overflow-x: hidden;
     overflow-y: hidden;
-    height: 40vh;
+    height: 50vh;
     width: 80%;
     margin: 0 auto;
   }
